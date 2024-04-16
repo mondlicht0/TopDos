@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using TopDos.Player.Animations;
+using TopDos.Player.Data;
 using UnityEngine;
+using Zenject;
 
-public class Player : MonoBehaviour
+namespace TopDos.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Player : MonoBehaviour
     {
-        
-    }
+        private CharacterController _characterController;
+        private IMovement _playerMovement;
+        private Animator _animator;
+        private AnimatorBrain _animatorBrain;
+        [field: SerializeField] public SO_PlayerData Data { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            _playerMovement ??= GetComponent<IMovement>();
+            _characterController ??= GetComponent<CharacterController>();
+            _animator ??= GetComponent<Animator>();
+            _animatorBrain ??= GetComponent<AnimatorBrain>();
+        }
     }
 }
