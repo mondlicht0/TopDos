@@ -1,4 +1,4 @@
-using TopDos.Player.Animations;
+using TopDos.Animations;
 using TopDos.Player.Data;
 using UnityEngine;
 using Zenject;
