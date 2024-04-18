@@ -15,7 +15,7 @@ namespace TopDos.Player
         private void Awake()
         {
             _controls ??= GetComponent<ControlsHandler>();
-            _currentWeapon ??= GetComponent<Weapon>();
+            _currentWeapon ??= GetComponentInChildren<Weapon>();
             _animatorBrain ??= GetComponent<AnimatorBrain>();
         }
 

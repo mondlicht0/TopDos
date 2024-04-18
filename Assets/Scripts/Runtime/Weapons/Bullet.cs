@@ -16,7 +16,7 @@ namespace TopDos.Weapons
 
         private void Update()
         {
-            _rigidbody.velocity = Vector3.forward * (_bulletSpeed * Time.deltaTime);
+            _rigidbody.velocity = transform.forward * (_bulletSpeed * Time.deltaTime);
         }
     }
 }

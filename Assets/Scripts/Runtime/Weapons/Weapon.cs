@@ -6,6 +6,7 @@ namespace TopDos.Weapons
     public abstract class Weapon : MonoBehaviour
     {
         [field: SerializeField] public WeaponConfiguration WeaponConfig { get; private set; }
+        protected abstract ParticleSystem MuzzleFlash { get; set; }
 
         public abstract void Shoot();
     }
