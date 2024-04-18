@@ -5,25 +5,24 @@ namespace TopDos.Controls
 {
     public class ControlsHandler : MonoBehaviour
     {
-        private Controls _controls;
-
+        public Controls Controls { get; private set; }
         public Vector2 MoveInputDirection { get; private set; }
         public bool JumpInputTriggered { get; private set; }
-        public bool ShootInpuTriggered {  get; private set; }
+        public bool ShootInputTriggered {  get; private set; }
 
         private void Awake()
         {
-            _controls = new Controls();
+            Controls = new Controls();
         }
 
         private void OnEnable()
         {
-            _controls.Enable();
+            Controls.Enable();
         }
 
         private void OnDisable()
         {
-            _controls.Disable();
+            Controls.Disable();
         }
 
         public void OnMoveInput(InputAction.CallbackContext ctx)
@@ -38,7 +37,7 @@ namespace TopDos.Controls
 
         public void OnShootInput(InputAction.CallbackContext ctx)
         {
-            ShootInpuTriggered = ctx.ReadValueAsButton();
+            ShootInputTriggered = ctx.ReadValueAsButton();
         }
     }
 }

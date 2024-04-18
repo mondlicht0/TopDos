@@ -73,7 +73,7 @@ namespace TopDos.Player
 
         private void DefaultAnimation()
         {
-            
+            _animatorBrain.Play(EAnimation.IDLE);
         }
 
         private void FixedUpdate()

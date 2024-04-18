@@ -11,7 +11,7 @@ namespace TopDos.Player
         private IMovement _playerMovement;
         private Animator _animator;
         private AnimatorBrain _animatorBrain;
-        [field: SerializeField] public SO_PlayerData Data { get; private set; }
+        [field: SerializeField] public PlayerData Data { get; private set; }
 
 
         private void Awake()

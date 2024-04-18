@@ -14,7 +14,7 @@ namespace TopDos.Animations
             Animator.StringToHash("Death"),
             Animator.StringToHash("PistolIdle"),
             Animator.StringToHash("PistolWalk"),
-            Animator.StringToHash("PistolShoot")
+            Animator.StringToHash("Shoot")
         };
 
         private Animator _animator;
@@ -30,7 +30,7 @@ namespace TopDos.Animations
             _defaultAnimation = DefaultAnimation;
         }
         
-        public void Play(EAnimation animation, float crossfade = 0.2f)
+        public void Play(EAnimation animation, float crossfade = 0.2f, int layer=0)
         {
             if (animation == EAnimation.NONE)
             {
@@ -41,7 +41,7 @@ namespace TopDos.Animations
             if (_currentAnimation == animation) return;
 
             _currentAnimation = animation;
-            _animator.CrossFade(Animations[(int)_currentAnimation], crossfade);
+            _animator.CrossFade(Animations[(int)_currentAnimation], crossfade, layer);
         }
 
         public EAnimation GetCurrentAnimation()
