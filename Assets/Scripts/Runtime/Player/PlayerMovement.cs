@@ -3,7 +3,7 @@ using TopDos.Animations;
 using TopDos.Controls;
 using UnityEngine;
 
-namespace TopDos.Player
+namespace TopDos.PlayerSpace
 {
     public class PlayerMovement : MonoBehaviour, IMovement
     {

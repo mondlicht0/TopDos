@@ -107,7 +107,7 @@ namespace TopDos.Controls
                     ""id"": ""d61fe2a6-db0b-403d-a3c0-705d37f9907c"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": ""Consoles"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -205,7 +205,7 @@ namespace TopDos.Controls
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
+                    ""isOptional"": true,
                     ""isOR"": false
                 }
             ]

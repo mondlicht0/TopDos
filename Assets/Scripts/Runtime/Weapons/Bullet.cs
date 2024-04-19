@@ -1,4 +1,5 @@
 using System;
+using TopDos.Weapons.Data;
 using UnityEngine;
 
 namespace TopDos.Weapons
@@ -7,16 +8,30 @@ namespace TopDos.Weapons
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float _bulletSpeed;
+        private int _damage;
         private Rigidbody _rigidbody;
+
+        [field: SerializeField] public float BulletLifeTime { get; private set; }
+        public event Action OnCollisionHit;
 
         private void Awake()
         {
             _rigidbody ??= GetComponent<Rigidbody>();
         }
 
+        public void Init(WeaponConfiguration config)
+        {
+            _damage = config.Damage;
+        }
+
         private void Update()
         {
             _rigidbody.velocity = transform.forward * (_bulletSpeed * Time.deltaTime);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            OnCollisionHit?.Invoke();
         }
     }
 }

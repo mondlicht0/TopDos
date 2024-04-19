@@ -1,9 +1,7 @@
 using TopDos.Animations;
-using TopDos.Player.Data;
 using UnityEngine;
-using Zenject;
 
-namespace TopDos.Player
+namespace TopDos.PlayerSpace
 {
     public class Player : MonoBehaviour
     {

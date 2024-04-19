@@ -1,5 +1,5 @@
 using TopDos.Controls;
-using TopDos.Player;
+using TopDos.PlayerSpace;
 using UnityEngine;
 using Zenject;
 

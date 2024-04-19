@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TopDos.Player.Data
+namespace TopDos.PlayerSpace
 {
     [CreateAssetMenu(fileName = "New Player Data", menuName = "Data/Player Data", order = 0)]
     public class PlayerData : ScriptableObject

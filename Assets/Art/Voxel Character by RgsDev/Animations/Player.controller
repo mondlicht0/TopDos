@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _crossfade: 0.2
+  _layer: 1
+  _animationState: Empty
 --- !u!1102 &3519843932707531462
 AnimatorState:
   serializedVersion: 6

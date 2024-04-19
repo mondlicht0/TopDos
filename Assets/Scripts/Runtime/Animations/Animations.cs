@@ -7,8 +7,6 @@
         RUN,
         FALL,
         DEATH,
-        PISTOLIDLE,
-        PISTOLRUN,
-        PISTOLSHOOT,
+        ATTACK,
     }
 }
