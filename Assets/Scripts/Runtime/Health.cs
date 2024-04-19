@@ -3,13 +3,13 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour, IDamagable
 {
-    protected abstract int MaxHealth { get; set; }
-    protected abstract int CurrentHealth { get; set; }
+    [field: SerializeField] public int MaxHealth { get; private set; }
+    public int CurrentHealth { get; private set; }
 
     public event Action OnDamageTaken;
     public event Action OnDied;
 
-    private void OnEnable()
+    private void Awake()
     {
         CurrentHealth = MaxHealth;
     }
