@@ -45,7 +45,7 @@ namespace TopDos.PlayerSpace
                 Jump(_playerJumpForceScalar, GravityScalar);
             }
 
-            if (_moveDirection != Vector3.zero)
+            if (_moveDirection.magnitude != 0)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_moveDirection), _rotationSpeed);
             }

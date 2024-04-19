@@ -64,7 +64,7 @@ namespace TopDos.Controls
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -75,7 +75,7 @@ namespace TopDos.Controls
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Consoles"",
+                    ""groups"": """",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -86,7 +86,7 @@ namespace TopDos.Controls
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -97,7 +97,7 @@ namespace TopDos.Controls
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Consoles"",
+                    ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -108,7 +108,7 @@ namespace TopDos.Controls
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""NormalizeVector2"",
-                    ""groups"": ""Consoles"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -130,7 +130,7 @@ namespace TopDos.Controls
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -141,7 +141,7 @@ namespace TopDos.Controls
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -152,7 +152,7 @@ namespace TopDos.Controls
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -163,7 +163,7 @@ namespace TopDos.Controls
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""PC"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -171,46 +171,7 @@ namespace TopDos.Controls
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""Mobile"",
-            ""bindingGroup"": ""Mobile"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Touchscreen>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""PC"",
-            ""bindingGroup"": ""PC"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                },
-                {
-                    ""devicePath"": ""<Mouse>"",
-                    ""isOptional"": true,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Consoles"",
-            ""bindingGroup"": ""Consoles"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": true,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
@@ -336,33 +297,6 @@ namespace TopDos.Controls
             }
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
-        private int m_MobileSchemeIndex = -1;
-        public InputControlScheme MobileScheme
-        {
-            get
-            {
-                if (m_MobileSchemeIndex == -1) m_MobileSchemeIndex = asset.FindControlSchemeIndex("Mobile");
-                return asset.controlSchemes[m_MobileSchemeIndex];
-            }
-        }
-        private int m_PCSchemeIndex = -1;
-        public InputControlScheme PCScheme
-        {
-            get
-            {
-                if (m_PCSchemeIndex == -1) m_PCSchemeIndex = asset.FindControlSchemeIndex("PC");
-                return asset.controlSchemes[m_PCSchemeIndex];
-            }
-        }
-        private int m_ConsolesSchemeIndex = -1;
-        public InputControlScheme ConsolesScheme
-        {
-            get
-            {
-                if (m_ConsolesSchemeIndex == -1) m_ConsolesSchemeIndex = asset.FindControlSchemeIndex("Consoles");
-                return asset.controlSchemes[m_ConsolesSchemeIndex];
-            }
-        }
         public interface IGameplayActions
         {
             void OnShoot(InputAction.CallbackContext context);
