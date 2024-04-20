@@ -32,11 +32,9 @@ namespace TopDos.Weapons
 
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log(other.collider.name);
             if (other.collider.TryGetComponent(out IDamagable health))
             {
                 health.ModifyHealth(-_damage);
-                
             }
             
             OnCollisionHit?.Invoke();
