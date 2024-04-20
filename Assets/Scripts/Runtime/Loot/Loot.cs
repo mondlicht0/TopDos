@@ -1,9 +1,23 @@
+using System;
+using TopDos.PlayerSpace;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Drop Loot", menuName = "Loot/New Drop Loot", order = 0)]
-public class Loot : ScriptableObject
+public abstract class Loot : MonoBehaviour
 {
-    [field: SerializeField] public string Name { get; private set; } 
-    [field: SerializeField] public GameObject LootPrefab { get; private set; }
-    [field: SerializeField] public int DropChance { get; private set; }
+    public event Action<Player> OnTakeLoot;
+
+    private void Start()
+    {
+        OnTakeLoot += Receive;
+    }
+
+    public abstract void Receive(Player player);
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Player player))
+        {
+            OnTakeLoot?.Invoke(player);
+        }
+    }
 }

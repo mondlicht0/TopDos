@@ -21,10 +21,13 @@ public class EnemySpawner : MonoBehaviour
         _enemyPool = new EnemyObjectPool(_enemyPrefab, EnemyPreloadCount);
     }
 
-    private async void Update()
+    private async void Start()
     {
-        SpawnRandomEnemy();
-        await UniTask.Delay(TimeSpan.FromSeconds(_spawnRate));
+        while (true)
+        {
+            SpawnRandomEnemy();
+            await UniTask.Delay(TimeSpan.FromSeconds(_spawnRate));
+        }
     }
 
     private void SpawnRandomEnemy()

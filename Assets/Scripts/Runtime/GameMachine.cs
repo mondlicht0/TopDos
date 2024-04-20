@@ -1,4 +1,5 @@
 using System;
+using TopDos.Enemies;
 using TopDos.PlayerSpace;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,7 @@ public class GameMachine : MonoBehaviour
 {
     private PlayerHealth _healthController;
     public GameState GameState { get; private set; } = GameState.OFF;
+    public event Action<Enemy> OnEnemyKilled;
 
     public event Action OnGameStart;
     public event Action OnGamePause;
@@ -34,6 +36,11 @@ public class GameMachine : MonoBehaviour
     {
         _healthController.OnDied += FinishGame;
         GameState = GameState.PLAY;
+    }
+    
+    public void SendEnemyKilled(Enemy enemy)
+    {
+        OnEnemyKilled?.Invoke(enemy);
     }
 
     public void StartGame()

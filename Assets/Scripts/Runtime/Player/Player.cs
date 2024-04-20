@@ -16,7 +16,7 @@ namespace TopDos.PlayerSpace
         private GameMachine _gameManager;
         [field: SerializeField] public PlayerData Data { get; private set; }
 
-
+        
         private void Awake()
         {
             _playerHealth ??= GetComponent<PlayerHealth>();
@@ -25,6 +25,11 @@ namespace TopDos.PlayerSpace
             _characterController ??= GetComponent<CharacterController>();
             _animator ??= GetComponent<Animator>();
             _animatorBrain ??= GetComponent<AnimatorBrain>();
+        }
+
+        private void Start()
+        {
+            _gameManager = FindObjectOfType<GameMachine>();
             _gameManager.OnGameOver += () => gameObject.SetActive(false);
         }
 

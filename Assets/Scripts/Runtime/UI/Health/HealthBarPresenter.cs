@@ -14,7 +14,7 @@ namespace TopDos.UI
         private void Construct(PlayerHealth health)
         {
             _healthController = health;
-            _healthController.OnDamageTaken += UpdateHealthBar;
+            _healthController.OnModifyHealth += UpdateHealthBar;
         }
         private void Awake()
         {
@@ -34,7 +34,7 @@ namespace TopDos.UI
         }
         private void OnDisable()
         {
-            _healthController.OnDamageTaken -= UpdateHealthBar;
+            _healthController.OnModifyHealth -= UpdateHealthBar;
         }
     }
 }

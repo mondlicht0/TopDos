@@ -10,7 +10,7 @@ namespace TopDos.Enemies
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private EnemyData _data;
+        [field: SerializeField] public EnemyData Data { get; private set; }
         private Health _health;
         private Animator _animator;
         private AnimatorBrain _animatorBrain;
@@ -72,12 +72,12 @@ namespace TopDos.Enemies
 
         private bool IsChasingPlayer()
         {
-            return Vector3.Distance(transform.position, Player.transform.position) > _data.AttackRange;
+            return Vector3.Distance(transform.position, Player.transform.position) > Data.AttackRange;
         }
 
         private bool IsAttack()
         {
-            return Vector3.Distance(transform.position, Player.transform.position) < _data.AttackRange;
+            return Vector3.Distance(transform.position, Player.transform.position) < Data.AttackRange;
         }
 
         private void PlayDeathAnimation()

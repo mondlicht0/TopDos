@@ -8,7 +8,8 @@ namespace TopDos.Enemies
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public float MoveSpeed { get; private set; }
         [field: SerializeField] public float Health { get; private set; }
-        [field: SerializeField] public float Damage { get; private set; }
+        [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
+        [field: SerializeField] public float Value { get; private set; }
     }
 }

@@ -35,7 +35,7 @@ namespace TopDos.Weapons
             Debug.Log(other.collider.name);
             if (other.collider.TryGetComponent(out IDamagable health))
             {
-                health.TakeDamage(_damage);
+                health.ModifyHealth(-_damage);
                 
             }
             

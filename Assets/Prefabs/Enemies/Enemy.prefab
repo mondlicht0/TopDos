@@ -899,7 +899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a331007d5ebb04f9a82893ed90b0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: c493785f90671af4499652d155d049fb, type: 2}
+  <Data>k__BackingField: {fileID: 11400000, guid: c493785f90671af4499652d155d049fb,
+    type: 2}
 --- !u!114 &3694755261630324375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2553,7 +2554,7 @@ Transform:
   m_GameObject: {fileID: 5323365182589478081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -1.1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2602,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageDealerHolder: {fileID: 5526012469241214258}
-  _armLength: 2.63
+  _armLength: 4.6
   _playerMask:
     serializedVersion: 2
     m_Bits: 64

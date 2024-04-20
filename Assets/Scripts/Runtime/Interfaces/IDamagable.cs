@@ -3,9 +3,9 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    void TakeDamage(int damage);
+    void ModifyHealth(int amount);
     void Die();
 
-    public event Action OnDamageTaken;
+    public event Action OnModifyHealth;
     public event Action OnDied;
 }

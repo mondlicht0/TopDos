@@ -7,7 +7,7 @@ namespace TopDos.Weapons
 {
     public class Pistol : Weapon
     {
-        private const int BulletPreloadCount = 20;
+        private const int BulletPreloadCount = 10;
 
         [SerializeField] private Bullet _bulletPrefab;
         protected override ParticleSystem MuzzleFlash { get; set; }

@@ -6,7 +6,7 @@ public abstract class Health : MonoBehaviour, IDamagable
     [field: SerializeField] public int MaxHealth { get; private set; }
     public int CurrentHealth { get; private set; }
 
-    public event Action OnDamageTaken;
+    public event Action OnModifyHealth;
     public event Action OnDied;
 
     private void Awake()
@@ -14,11 +14,11 @@ public abstract class Health : MonoBehaviour, IDamagable
         CurrentHealth = MaxHealth;
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void ModifyHealth(int amount)
     {
-        OnDamageTaken?.Invoke();
+        CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
 
-        CurrentHealth -= damage;
+        OnModifyHealth?.Invoke();
         if (CurrentHealth <= 0)
         {
             Die();
