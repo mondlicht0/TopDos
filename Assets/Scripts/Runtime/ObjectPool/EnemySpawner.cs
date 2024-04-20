@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     private async void Start()
     {
+        // TODO: FIX
         while (true)
         {
             SpawnRandomEnemy();
