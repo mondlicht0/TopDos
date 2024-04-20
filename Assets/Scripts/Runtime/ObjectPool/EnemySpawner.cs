@@ -38,6 +38,12 @@ public class EnemySpawner : MonoBehaviour
             Enemy enemy = _enemyPool.Get();
             enemy.transform.position = spawnPoint;
         }
+
+        else
+        {
+            Enemy enemy = _enemyPool.Get();
+            enemy.transform.position = Vector3.zero;
+        }
     }
 
     private bool TryGetRandomPoint(Vector3 center, float range, out Vector3 result)
@@ -45,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPoint, out hit, _spawnRange, NavMesh.AllAreas))
         {
             result = hit.position;
             return true;
