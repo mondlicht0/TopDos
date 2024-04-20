@@ -34,7 +34,7 @@ namespace TopDos.Enemies.FSM
 
         private void ChasePlayer(Player player)
         {
-            Enemy.Agent.SetDestination(player.transform.position);
+            Enemy.Agent?.SetDestination(player.transform.position);
         }
     }
 }

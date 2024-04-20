@@ -7,7 +7,11 @@ namespace TopDos.PlayerSpace
         public override void TakeDamage(int damage)
         {
             base.TakeDamage(damage);
-            Debug.Log("Damage");
+        }
+
+        public override void Die()
+        {
+            base.Die();
         }
     }
 }

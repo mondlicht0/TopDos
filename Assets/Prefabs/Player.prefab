@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4485531879816752206}
   - component: {fileID: 5189170974854545999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5542301370254699973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2975208617595915961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: weaponHolderR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661514810744994986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: footL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4527535052690610989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 9018246993368582497}
   - component: {fileID: 8947344202175408465}
   - component: {fileID: 5894646662473106865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 3497757234679793359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0002, y: 0.0066, z: 0.0085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5059,7 +5059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9058676628611783901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5091,7 +5091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456718084065082617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: weaponHolderL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5122,7 +5122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6796645599341589846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5156,7 +5156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8004951935319397728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5190,7 +5190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7984988074586298605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5222,7 +5222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8725832567229904215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraFollowTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5253,7 +5253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4053509419920057049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: footR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5290,9 +5290,10 @@ GameObject:
   - component: {fileID: -552875290681002470}
   - component: {fileID: 3372126502325787746}
   - component: {fileID: 5592279668314475140}
+  - component: {fileID: 2509855501894948070}
   - component: {fileID: 4806330615606294974}
   - component: {fileID: 7263517701018118399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5415,6 +5416,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384a0ccb352ffe6498d326cc0a47fc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animationStatesList:
+  - 
+  - Idle
+  - Run
+  - Fall
+  - Death
+  - Shoot
+  - Shoot
+  - Shoot
+--- !u!114 &2509855501894948070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8968964692212275061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4fabc9dd440394eacae428401c1f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 50
 --- !u!114 &4806330615606294974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,6 +5606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Voxel pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8121ebc264136114594a836e6a140af6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

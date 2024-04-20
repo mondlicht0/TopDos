@@ -10,13 +10,9 @@ namespace TopDos.Controls
         public bool JumpInputTriggered { get; private set; }
         public bool ShootInputTriggered {  get; private set; }
 
-        private void Awake()
+        public void Init()
         {
             Controls = new Controls();
-        }
-
-        private void OnEnable()
-        {
             Controls.Enable();
         }
 

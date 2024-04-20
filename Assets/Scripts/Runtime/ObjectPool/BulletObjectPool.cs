@@ -1,18 +1,19 @@
 using TopDos.Weapons;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace TopDos.ObjectPooling
 {
     public class BulletObjectPool : ObjectPool<Bullet>
     {
-        public BulletObjectPool(Bullet prefab, int preloadCount) 
-            : base(() => Preload(prefab), GetObject, ReturnObject, preloadCount)
+        public BulletObjectPool(Bullet prefab, Transform muzzleFlash, int preloadCount) 
+            : base(() => Preload(prefab, muzzleFlash), GetObject, ReturnObject, preloadCount)
         {
         }
 
-        public static Bullet Preload(Bullet prefab)
+        public static Bullet Preload(Bullet prefab, Transform MuzzleFlash)
         {
-            return Object.Instantiate(prefab);
+            return Object.Instantiate(prefab, MuzzleFlash.transform.position, MuzzleFlash.transform.rotation);
         }
 
         public static void GetObject(Bullet obj)

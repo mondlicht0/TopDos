@@ -16,4 +16,4 @@ MonoBehaviour:
   <MoveSpeed>k__BackingField: 5
   <Health>k__BackingField: 10
   <Damage>k__BackingField: 2
-  <AttackRange>k__BackingField: 1
+  <AttackRange>k__BackingField: 1.55

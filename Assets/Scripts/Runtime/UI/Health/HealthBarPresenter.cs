@@ -14,16 +14,11 @@ namespace TopDos.UI
         private void Construct(PlayerHealth health)
         {
             _healthController = health;
+            _healthController.OnDamageTaken += UpdateHealthBar;
         }
-
         private void Awake()
         {
             _healthBarView ??= GetComponent<Slider>();
-        }
-
-        private void Start()
-        {
-            _healthController.OnDamageTaken += UpdateHealthBar;
             CompareSliderHealth();
         }
 

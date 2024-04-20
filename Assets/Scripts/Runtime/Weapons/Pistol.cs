@@ -15,11 +15,11 @@ namespace TopDos.Weapons
 
         private void Awake()
         {
-            MuzzleFlash = FindObjectOfType<ParticleSystem>();
-            BulletsPool = new BulletObjectPool(_bulletPrefab, BulletPreloadCount);
+            MuzzleFlash = GetComponentInChildren<ParticleSystem>();
+            BulletsPool = new BulletObjectPool(_bulletPrefab, MuzzleFlash.transform, BulletPreloadCount);
         }
 
-        public async override void Shoot()
+        public override async void Shoot()
         {
             MuzzleFlash.Play();
             Bullet bullet = BulletsPool.Get();

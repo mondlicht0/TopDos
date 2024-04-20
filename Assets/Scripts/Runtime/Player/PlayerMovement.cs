@@ -2,6 +2,7 @@ using System;
 using TopDos.Animations;
 using TopDos.Controls;
 using UnityEngine;
+using Zenject;
 
 namespace TopDos.PlayerSpace
 {
@@ -9,7 +10,9 @@ namespace TopDos.PlayerSpace
     {
         [SerializeField] private float _rotationSpeed = 5f;
 
+        [Inject]
         private Player _player;
+        
         private Animator _animator;
         private AnimatorBrain _animatorBrain;
         private ControlsHandler _controls;

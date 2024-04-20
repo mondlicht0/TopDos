@@ -1,3 +1,4 @@
+using System;
 using TopDos.Animations;
 using TopDos.Enemies.FSM;
 using UnityEngine;
@@ -10,19 +11,21 @@ namespace TopDos.Enemies
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private EnemyData _data;
+        private Health _health;
         private Animator _animator;
         private AnimatorBrain _animatorBrain;
         private EnemyStateMachine _fsm;
 
+        public bool IsDead { get; private set; }
         public Player Player { get; private set; }
         public Collider PlayerCollider { get; private set; }
         public NavMeshAgent Agent { get; private set; }
-        public bool IsAttacking { get; private set; }
 
         private void Awake()
         {
             _animator ??= GetComponentInChildren<Animator>();
             _animatorBrain ??= GetComponent<AnimatorBrain>();
+            _health ??= GetComponent<EnemyHealth>();
             Agent ??= GetComponent<NavMeshAgent>();
             Player ??= FindObjectOfType<Player>();
             PlayerCollider ??= Player.GetComponentInChildren<Collider>();
@@ -31,9 +34,18 @@ namespace TopDos.Enemies
             InitStateMachine();
         }
 
+        private void Start()
+        {
+            _health.OnDied += PlayDeathAnimation;
+            _health.OnDied += SetIsDead;
+        }
+
         private void Update()
         {
-            _fsm.UpdateFSM();
+            if (!IsDead)
+            {
+                _fsm.UpdateFSM();
+            }
         }
 
         private void InitStateMachine()
@@ -46,6 +58,11 @@ namespace TopDos.Enemies
             _fsm.AddTransition(attackState, chasingState, new FuncPredicate(() => IsChasingPlayer()));
             _fsm.AddTransition(chasingState, attackState, new FuncPredicate(() => IsAttack()));
             _fsm.SetState(chasingState);
+        }
+
+        private void SetIsDead()
+        {
+            IsDead = true;
         }
         
         private void DefaultAnimation()
@@ -61,6 +78,12 @@ namespace TopDos.Enemies
         private bool IsAttack()
         {
             return Vector3.Distance(transform.position, Player.transform.position) < _data.AttackRange;
+        }
+
+        private void PlayDeathAnimation()
+        {
+            //_animatorBrain.Play(EAnimation.DEATH);
+            gameObject.SetActive(false);
         }
     }
 }

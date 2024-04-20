@@ -1,4 +1,5 @@
 using System;
+using TopDos.Enemies;
 using TopDos.Weapons.Data;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace TopDos.Weapons
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float _bulletSpeed;
-        private int _damage;
+        private int _damage = 5;
         private Rigidbody _rigidbody;
 
         [field: SerializeField] public float BulletLifeTime { get; private set; }
@@ -31,6 +32,13 @@ namespace TopDos.Weapons
 
         private void OnCollisionEnter(Collision other)
         {
+            Debug.Log(other.collider.name);
+            if (other.collider.TryGetComponent(out IDamagable health))
+            {
+                health.TakeDamage(_damage);
+                
+            }
+            
             OnCollisionHit?.Invoke();
         }
     }
