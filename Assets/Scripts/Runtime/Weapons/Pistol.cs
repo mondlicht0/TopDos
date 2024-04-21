@@ -27,7 +27,8 @@ namespace TopDos.Weapons
             MuzzleFlash.Play();
             _audio.PlayOneShot(_sound);
             Bullet bullet = BulletsPool.Get();
-            bullet.transform.position = MuzzleFlash.transform.position;
+            bullet.Init(WeaponConfig);
+            //bullet.transform.position = MuzzleFlash.transform.position;
             bullet.transform.rotation = MuzzleFlash.transform.rotation;
             bullet.OnCollisionHit += () => BulletsPool.Return(bullet);
 
